@@ -65,7 +65,7 @@
 
 - name: tweak /etc/sudoers
   template:
-    src: roles/bootstrap-linode/templates/sudoers.j2
+    src: sudoers.j2
     dest: /etc/sudoers
     mode: 0440
     owner: root
