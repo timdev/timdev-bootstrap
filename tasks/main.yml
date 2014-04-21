@@ -59,7 +59,6 @@
   authorized_key: user={{ item.name }} key="{{ item.key }}"
   with_items: ssh_users
 
-
 - name: Add users' keys to ansible account
   authorized_key: user=ansible key="{{ item.key }}"
   with_items: ssh_users
@@ -76,10 +75,6 @@
 
 - name: Update to newest debian
   apt: upgrade=dist update_cache=yes
-
-- name: Disallow root SSH access
-  action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
-  notify: Restart sshd
 
 - name: reboot
   shell: sleep 2s && /sbin/reboot &
