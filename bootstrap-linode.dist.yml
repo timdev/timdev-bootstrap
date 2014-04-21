@@ -1,0 +1,13 @@
+#
+# bootstrap-linode should be run only once, so you can symlink to this playbook from your main area.  Then run it
+# like:
+#
+# $ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root -k -c paramiko -i <inventoryfile> -l <hostname> bootstrap-linode.yml
+#
+---
+- name: Bootstrap a raw, new, Debian Linode.
+  hosts: all
+  remote_user: root
+
+  roles:
+    - bootstrap-linode
